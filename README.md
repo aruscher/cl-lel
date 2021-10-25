@@ -1,16 +1,15 @@
-# cl-lel
+# Common Lisp Lazy Evaluation Library
 
 A brief description of what this project does and who it's for
 
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Implementation of lazy sequences
+- Default methods working with lazy sequences
+- Some generators
 
-  
+
 ## Installation
 
 Install cl-lel with ???
