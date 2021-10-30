@@ -1,9 +1,9 @@
-# Common Lisp Lazy Evaluation Library
+# Common Lisp Lazy Evaluation Library (cl-lel)
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
 This library provides an implementation of lazy sequences and its commonly used operators, e.g., filter, drop, and take.
 
-I believe that this library does not provide something special in contrast to the linked [alternatives](#alternatives) or the [references](#acknowledgements].
+I believe that this library does not provide something unique in contrast to the linked [alternatives](#alternatives) or the [references](#acknowledgements).
 
 ## Features
 
@@ -14,15 +14,28 @@ I believe that this library does not provide something special in contrast to th
 
 ## Installation
 
-Unfortunatly, cl-lel is currently not available via [quicklisp](https://www.quicklisp.org/beta/).
-Thus, you have to install this library manually:
+Unfortunately, `cl-lel` is currently not available for download via [quicklisp](https://www.quicklisp.org/beta/).
+Thus, you have to install this library manually.
 
-Install cl-lel with ???
-
-```lisp
-(install-my-cl-lel)
+1. Clone this repository to your `ql:*local-project-directories*`
+``` bash
+cd /home/user/quicklisp/local-projects/
+git clone git@github.com:aruscher/cl-lel.git
 ```
-    
+
+2. Now, your systems can depend on this library
+``` lisp
+(asdf:defsystem #:my-system
+  ...
+  :depends-on ("cl-lel")
+  ...)
+```
+
+You can run the tests via:
+``` lisp
+(asdf:test-system "cl-lel" :force t :verbose t)
+```
+
 ## Usage/Examples
 
 ``` lisp
