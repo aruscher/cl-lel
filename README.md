@@ -51,7 +51,7 @@ You can run the tests via:
 
  - [Scheme lazy-seq](http://wiki.call-cc.org/eggref/5/lazy-seq)
  - [Clojure lazy-seq](https://clojure.org/reference/lazy)
- - [Barski - Land of Lisp](http://landoflisp.com/]
+ - [Barski - Land of Lisp](http://landoflisp.com/)
 
 ## Alternatives
 
