@@ -36,6 +36,13 @@
   (let ((lazy-seq (numbers-from 1))
 	(predicate (lambda (x) (<= x 3))))
     (is (equal '(4 5 6)
+	       (lazy-take 3
+			  (lazy-drop-while predicate lazy-seq))))))
+
+(test lazy-drop-while
+  (let ((lazy-seq (numbers-from 1))
+	(predicate (lambda (x) (<= x 3))))
+    (is (equal '(4 5 6)
 	       (lazy-take 3 (lazy-drop-while predicate lazy-seq))))))
 
 (test lazy-nth
@@ -46,6 +53,11 @@
   (is (equal '(2 4 6) (lazy-take 3
 				 (lazy-filter #'evenp
 					      (numbers-from 1))))))
+
+(test lazy-mapcar
+  (let ((lazy-seq (numbers-from 1)))
+    (is (equal '(2 3 4)
+	       (lazy-take 3 (lazy-mapcar #'1+ lazy-seq))))))
 
 (test list->lazy-seq
   (let ((l '(1 2 3)))
@@ -62,5 +74,16 @@
 				   (lazy-mapcar #'1+
 						(list->lazy-seq l)))))))
 
+(defun fibonacci ()
+  (labels ((inner-fibonacci (a b)
+	     (lcons a (inner-fibonacci b (+ a b)))))
+    (inner-fibonacci 0 1)))
 
+(test example-1
+  (let ((seq (fibonacci)))
+    (is (equal '(0 1 1 2 3 5 8)
+	       (lazy-take 7 seq)))
+    (is (= 8 (lazy-nth 6 seq)))
+    (is (equal '(2 3 5) (lazy-take 3
+				   (lazy-drop 3 seq))))))
 
