@@ -43,15 +43,24 @@
     (is (= 4 (lazy-nth 3 lazy-seq)))))
 
 (test lazy-filter
-  (is (equal '(2 4 6) (lazy-take 3 (lazy-filter #'evenp
-						(numbers-from 1))))))
+  (is (equal '(2 4 6) (lazy-take 3
+				 (lazy-filter #'evenp
+					      (numbers-from 1))))))
 
 (test list->lazy-seq
   (let ((l '(1 2 3)))
-    (is (equal l (lazy-take 3 (list->lazy-seq l))))
-    (is (null (lazy-drop 3 (list->lazy-seq l))))
-    (is (null (lazy-nth 10 (list->lazy-seq l))))
-    (is (equal '(2) (lazy-take 10 (lazy-filter #'evenp
-					       (list->lazy-seq l)))))))
+    (is (equal l (lazy-take 3
+			    (list->lazy-seq l))))
+    (is (lcons-null (lazy-drop 3
+			       (list->lazy-seq l))))
+    (is (null (lazy-nth 10
+			(list->lazy-seq l))))
+    (is (equal '(2) (lazy-take 10
+			       (lazy-filter #'evenp
+					    (list->lazy-seq l)))))
+    (is (equal '(2 3 4) (lazy-take 3
+				   (lazy-mapcar #'1+
+						(list->lazy-seq l)))))))
+
 
 
