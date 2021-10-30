@@ -18,9 +18,9 @@ Unfortunately, `cl-lel` is currently not available for download via [quicklisp](
 Thus, you have to install this library manually.
 
 1. Clone this repository to your `ql:*local-project-directories*`
-``` bash
-cd /home/user/quicklisp/local-projects/
-git clone git@github.com:aruscher/cl-lel.git
+``` console
+$ cd /home/user/quicklisp/local-projects/
+$ git clone git@github.com:aruscher/cl-lel.git
 ```
 
 2. Now, your systems can depend on this library
